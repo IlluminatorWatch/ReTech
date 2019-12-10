@@ -1,0 +1,61 @@
+//colors
+$black: black;
+$white: white;
+$butbgColor: lightgrey; 
+
+//fonts
+$font_0: Raleway;
+$font_1: sans-serif;
+$font_2: georgia;
+$font_3: serif;
+
+//urls
+$url_0: url();
+
+.productDiv {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: 430px;
+
+        .photoDiv {
+           
+            .photos {
+            object-fit: cover;
+            width: 100%;
+            height: 200px;
+
+        }
+       
+    }
+    .infoDiv{
+        align-content: center;
+        
+
+        .title {
+        font-size: 1.9em;
+        }
+        .description {
+        font-size: 0.9em;
+        padding: 4px;
+        }
+        .price {
+        font-size: 1.4em;
+        color: rgb(55, 55, 55);
+        font-weight: bold;
+        text-align: right;
+        }
+    }
+    .buttonDiv {
+        justify-content: space-around;
+        bottom: 0px;
+        padding: 0;
+        margin: 0;
+
+        button {
+            background-color: $butbgColor;
+            color: $black; 
+            border-radius: 4px;
+            
+        }
+    }
+}
