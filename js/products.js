@@ -9,6 +9,8 @@ $(document).ready (function(){
     this.price;
     this.photo;
     }
+
+    
     
     productList = [];
     cart = [];
@@ -20,7 +22,7 @@ $(document).ready (function(){
         iphone7.cond = "Fint skick";
         iphone7.year = "2015";
         iphone7.price ="2000 kr";
-        iphone7.photo = "photo/iphone7.jpg";
+        iphone7.photo = "../img/Iphone7.jpg";
        
         let appleTv = new Products();
         appleTv.name = "AppleTv 4K";
@@ -28,7 +30,7 @@ $(document).ready (function(){
         appleTv.cond = "Fint skick";
         appleTv.year = "2017";
         appleTv.price = "1200 kr";
-        appleTv.photo = "photo/appletv.jpg";
+        appleTv.photo = "../img/appletv.jpg";
     
         let nikonD810 = new Products();
         nikonD810.name = "Nikon D810";
@@ -36,7 +38,7 @@ $(document).ready (function(){
         nikonD810.cond = "Topp Skick.";
         nikonD810.year = "2018";
         nikonD810.price = "11200 kr";
-        nikonD810.photo = "photo/Nikond810.jpg";
+        nikonD810.photo = "../img/Nikond810.jpg";
     
     
         let playstation4 = new Products();
@@ -45,7 +47,7 @@ $(document).ready (function(){
         playstation4.cond = "Bra skick.";
         playstation4.year = "2017";
         playstation4.price = "2400 kr";
-        playstation4.photo = "photo/Playstation4.jpg";
+        playstation4.photo = "../img/Playstation4.jpg";
     
     
         let sonyk = new Products();
@@ -54,7 +56,7 @@ $(document).ready (function(){
         sonyk.cond = "Okej skick";
         sonyk.year = "2017";
         sonyk.price = "1000 kr";
-        sonyk.photo = "photo/sonyDSC.jpg";
+        sonyk.photo = "../img/sonyDSC.jpg";
     
     
         let espressobryggare = new Products();
@@ -63,7 +65,7 @@ $(document).ready (function(){
         espressobryggare.cond = "Fint skick";
         espressobryggare.year = "2005";
         espressobryggare.price = "4000 kr";
-        espressobryggare.photo = "photo/espresso.jpg";
+        espressobryggare.photo = "../img/espresso.jpg";
     
     
         let samsungTv = new Products();
@@ -72,7 +74,7 @@ $(document).ready (function(){
         samsungTv.cond = "Fint skick";
         samsungTv.year = "2018";
         samsungTv.price = "15500 kr";
-        samsungTv.photo = "photo/samsungtv.jpg";
+        samsungTv.photo = "../img/samsungtv.jpg";
     
     
         let epson = new Products();
@@ -81,7 +83,7 @@ $(document).ready (function(){
         epson.cond = "Fint skick";
         epson.year = "2017";
         epson.price = "1200 kr";
-        epson.photo = "photo/epson.jpg";
+        epson.photo = "../img/epson.jpg";
     
         productList.push(iphone7);
         productList.push(appleTv);
@@ -93,6 +95,49 @@ $(document).ready (function(){
         productList.push(epson);
       
     }
+
+    function presentModal(){
+        document.getElementById("modalPhoto").innerHTML=("");
+
+  //Hämta modal i HTML & Visa den
+  let modal = document.getElementById("myModal");
+      modal.style.display = "block";
+  //Presentera en header i modalen
+      modalTitle = document.getElementById("modaltitle");
+      modalTitle.innerHTML = productItems[i].title;
+
+  //Visa bild i modalen
+  let createImgModal = document.createElement("img");
+      createImgModal.src = imageToPresent.url;
+      photoModal = document.getElementById("modalPhoto");
+      photoModal.appendChild(createImgModal);
+
+  // Visa annan info om fotografiet
+  let icond = document.getElementById("pCond");
+  let iDesc = document.getElementById("pDesc");
+  let iYear = document.getElementById("pYear");
+      icond.innerHTML ="<b>Varans skick:</b> " + productItems[i].cond;
+      iDesc.innerHTML ="<b>Beskrivning:</b> " + productItems[i].desc;
+      iYear.innerHTML ="<b>inköpt år:</b> " + productItems[i].year;
+
+  // Ger modalen en footer med info
+  let footer = document.getElementById("footermodal");
+      footer.innerHTML = "";
+
+  //stänger mobal vid klick på kryss
+  let close = document.getElementsByClassName("close")[0];
+    close.onclick = function(){
+    modal.style.display="none";
+  }
+  //stänger modal om du klickar utanför modalen
+  window.onclick = function(event){
+    if(event.target == modal){
+    modal.style.display ="none";
+    }
+  }
+}
+    
+
     productItems();
     
     console.log (productList);
@@ -110,7 +155,7 @@ $(document).ready (function(){
         let buttonDiv = $("<div>").attr("class", "row col-12 buttonDiv").appendTo(infoDiv);
         let modalBut = $("<button>").attr("type","button").attr("class", "col-5").text("Läs mer").appendTo(buttonDiv);
         let buyBut = $("<button>").attr("type","button").attr("class", "col-5").text("köp").appendTo(buttonDiv);
-            $(modalBut).on("click" presentModal());
+           // $(modalBut).on("click", presentModal());
     
       }  
     
