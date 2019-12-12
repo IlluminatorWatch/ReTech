@@ -19,11 +19,11 @@ $(document).ready (function(){
       modal.style.display = "block";
   //Presentera en header i modalen
     let  modalTitle = document.getElementById("modaltitle");
-      modalTitle.innerHTML = productItems.Products.name;
+      modalTitle.innerHTML = productItems.name;
 
   //Visa bild i modalen
   let createImgModal = document.createElement("img");
-      createImgModal.src = imageToPresent.url;
+      createImgModal.src = productItems.photo;
       photoModal = document.getElementById("modalPhoto");
       photoModal.appendChild(createImgModal);
 
@@ -31,9 +31,9 @@ $(document).ready (function(){
   let icond = document.getElementById("pCond");
   let iDesc = document.getElementById("pDesc");
   let iYear = document.getElementById("pYear");
-      icond.innerHTML ="<b>Varans skick:</b> " + productList[i].cond;
-      iDesc.innerHTML ="<b>Beskrivning:</b> " + productList[i].desc;
-      iYear.innerHTML ="<b>inköpt år:</b> " + productItems[i].year;
+      icond.innerHTML ="<b>Varans skick:</b> " + productItems.cond;
+      iDesc.innerHTML ="<b>Beskrivning:</b> " + productItems.desc;
+      iYear.innerHTML ="<b>inköpt år:</b> " + productItems.year;
 
   // Ger modalen en footer med info
   let footer = document.getElementById("footermodal");
@@ -42,14 +42,16 @@ $(document).ready (function(){
   //stänger mobal vid klick på kryss
   let close = document.getElementsByClassName("close")[0];
     close.onclick = function(){
-    modal.style.display="none";
+        console.log(modal);
+        modal.style.display="none";
   }
 
   //stänger modal om du klickar utanför modalen
   window.onclick = function(event){
-    if(event.target == modal){
-    modal.style.display ="none";
-    }
+      console.log("Clicked somewhere");
+      if (event.target == modal) {
+        modal.style.display = "none";
+    } 
   }
 }
 
@@ -63,7 +65,7 @@ $(document).ready (function(){
 
         productList = [];
         cart = [];
-        sold = [];
+       
 
         let iphone7 = new Products();
         iphone7.name = "Iphone 7";
@@ -110,7 +112,7 @@ $(document).ready (function(){
         sonyk.year = "2017";
         sonyk.price = "1000 kr";
         sonyk.photo = "../img/sonyDSC.jpg";
-        sonyk.photo = "camera";
+        sonyk.categ = "camera";
     
     
         let espressobryggare = new Products();
@@ -120,7 +122,7 @@ $(document).ready (function(){
         espressobryggare.year = "2005";
         espressobryggare.price = "4000 kr";
         espressobryggare.photo = "../img/espresso.jpg";
-        espressobryggare.photo = "accessories";
+        espressobryggare.categ = "accessories";
     
     
         let samsungTv = new Products();
@@ -164,7 +166,9 @@ $(document).ready (function(){
             let buttonDiv = $("<div>").attr("class", "row col-12 buttonDiv").appendTo(infoDiv);
             let modalBut = $("<button>").attr("type","button").attr("class", "col-5").text("Läs mer").appendTo(buttonDiv);
             let buyBut = $("<button>").attr("type","button").attr("class", "col-5").text("köp").appendTo(buttonDiv);
-              $(modalBut).on("click", presentModal);
+              $(modalBut).on("click", function() {
+                  presentModal(productList[i]);
+              });
             }
         
             localStorage.setItem("Products", JSON.stringify(productList)); //sparar i localstorage 
