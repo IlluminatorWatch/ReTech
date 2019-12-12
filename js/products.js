@@ -110,7 +110,7 @@ $(document).ready (function(){
         let buttonDiv = $("<div>").attr("class", "row col-12 buttonDiv").appendTo(infoDiv);
         let modalBut = $("<button>").attr("type","button").attr("class", "col-5").text("Läs mer").appendTo(buttonDiv);
         let buyBut = $("<button>").attr("type","button").attr("class", "col-5").text("köp").appendTo(buttonDiv);
-            $(modalBut).on("click" presentModal());
+            // $(modalBut).on("click" presentModal());
     
       }  
     
