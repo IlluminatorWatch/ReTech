@@ -179,26 +179,4 @@ $(document).ready (function(){
     
     console.log (productList);
     
-<<<<<<< HEAD
-     for (let i = 0; i < productList.length; i++) {
-        let proCon = $("#productCont").attr("class","row");
-        let borderDiv = $("<div>").attr("class", "col-12 col-md-6, col-lg-4 p-2").appendTo(proCon);
-        let productDiv = $("<div>").attr("class", "productDiv col-12 p-0").appendTo(borderDiv);
-        let photoDiv = $("<div></div>").attr("class", "col-12 p-0 photoDiv").appendTo(productDiv);
-        let photoShow = $("<img>").attr("src", productList[i].photo).appendTo(photoDiv).attr("class", "photos");
-        let infoDiv = $("<div>").attr("class", "row col-12 infoDiv p-0 m-0").appendTo(productDiv);
-        let titleSpan = $("<span>").attr("class", "col-12 m-0 title").html(productList[i].name).appendTo(infoDiv);
-        let descSpan = $("<span>").attr("class", "col-12 m-0 description").html(productList[i].desc).appendTo(infoDiv);
-        let priceSpan = $("<span>").attr("class", "col-12 m-0 price").html(productList[i].price).appendTo(infoDiv);
-        let buttonDiv = $("<div>").attr("class", "row col-12 buttonDiv").appendTo(infoDiv);
-        let modalBut = $("<button>").attr("type","button").attr("class", "col-5").text("Läs mer").appendTo(buttonDiv);
-        let buyBut = $("<button>").attr("type","button").attr("class", "col-5").text("köp").appendTo(buttonDiv);
-            // $(modalBut).on("click" presentModal());
-    
-      }  
-    
-    
-      
-=======
->>>>>>> 2917a6a97bfb878282e039b322163bd2251c3027
     });
