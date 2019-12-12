@@ -22,8 +22,10 @@ $(document).ready (function(){
       modalTitle.innerHTML = productItems.name;
 
   //Visa bild i modalen
-  let createImgModal = document.createElement("img");
+  let createImgModal = document.createElement("img");     
+      createImgModal.className = ("img-fluid");
       createImgModal.src = productItems.photo;
+ 
       photoModal = document.getElementById("modalPhoto");
       photoModal.appendChild(createImgModal);
 
@@ -31,13 +33,14 @@ $(document).ready (function(){
   let icond = document.getElementById("pCond");
   let iDesc = document.getElementById("pDesc");
   let iYear = document.getElementById("pYear");
-      icond.innerHTML ="<b>Varans skick:</b> " + productItems.cond;
-      iDesc.innerHTML ="<b>Beskrivning:</b> " + productItems.desc;
-      iYear.innerHTML ="<b>inköpt år:</b> " + productItems.year;
+      icond.innerHTML ="<b>Condition:</b> " + productItems.cond;
+      iDesc.innerHTML ="<b>Description:</b> " + productItems.desc;
+      iYear.innerHTML ="<b>Year:</b> " + productItems.year;
 
   // Ger modalen en footer med info
-  let footer = document.getElementById("footermodal");
-      footer.innerHTML = "";
+  let footer = document.getElementsByClassName("footermodal");
+      modalBuy = document.getElementsByClassName("modalbuy");
+     
 
   //stänger mobal vid klick på kryss
   let close = document.getElementsByClassName("close")[0];
@@ -69,8 +72,8 @@ $(document).ready (function(){
 
         let iphone7 = new Products();
         iphone7.name = "Iphone 7";
-        iphone7.desc = "Fin Iphone 7 som alltid haft skydd av både skal och glasskydd.";
-        iphone7.cond = "Fint skick";
+        iphone7.desc = "Iphone 7 in good condition, has always been used with glassprotection.";
+        iphone7.cond = "Good";
         iphone7.year = "2015";
         iphone7.price ="2000 kr";
         iphone7.photo = "../img/Iphone7.jpg";
@@ -78,8 +81,8 @@ $(document).ready (function(){
        
         let appleTv = new Products();
         appleTv.name = "AppleTv 4K";
-        appleTv.desc = "32 GB, HDMI kabel medföljer.";
-        appleTv.cond = "Fint skick";
+        appleTv.desc = "32 GB, HDMI cable included.";
+        appleTv.cond = "Great";
         appleTv.year = "2017";
         appleTv.price = "1200 kr";
         appleTv.photo = "../img/appletv.jpg";
@@ -87,8 +90,8 @@ $(document).ready (function(){
     
         let nikonD810 = new Products();
         nikonD810.name = "Nikon D810";
-        nikonD810.desc = "28347 exponeringar, kartong och manual medföljer.";
-        nikonD810.cond = "Topp Skick.";
+        nikonD810.desc = "28347 exposures, cardboard and manual included.";
+        nikonD810.cond = "Great";
         nikonD810.year = "2018";
         nikonD810.price = "11200 kr";
         nikonD810.photo = "../img/Nikond810.jpg";
@@ -97,8 +100,8 @@ $(document).ready (function(){
     
         let playstation4 = new Products();
         playstation4.name = "Playstation 4";
-        playstation4.desc = "medföljer 2 konsoller.";
-        playstation4.cond = "Bra skick.";
+        playstation4.desc = "2 consoles are included.";
+        playstation4.cond = "Great";
         playstation4.year = "2017";
         playstation4.price = "2400 kr";
         playstation4.photo = "../img/Playstation4.jpg";
@@ -107,8 +110,8 @@ $(document).ready (function(){
     
         let sonyk = new Products();
         sonyk.name = "Sony DSC-100M3";
-        sonyk.desc = "20.1 megapixel Sony DSC-100M3 Cyber-Shoot, 3tums LCD skärm som går att vinkla. Filmar i full HD.";
-        sonyk.cond = "Okej skick";
+        sonyk.desc = "20.1 megapixel Sony DSC-100M3 Cyber-Shoot, 3 inch LCD screen that can be angled. Full HD movies.";
+        sonyk.cond = "Okey";
         sonyk.year = "2017";
         sonyk.price = "1000 kr";
         sonyk.photo = "../img/sonyDSC.jpg";
@@ -117,8 +120,8 @@ $(document).ready (function(){
     
         let espressobryggare = new Products();
         espressobryggare.name = "ASCA Dream Polished";
-        espressobryggare.desc = "Oanvänd sen 2011. Inklusive Lux kaffekvarn och barrista presshandtag. Rostfritt stål.";
-        espressobryggare.cond = "Fint skick";
+        espressobryggare.desc = "Unused since 2011. Including Lux coffee grinder and barista press handles. Stainless steel.";
+        espressobryggare.cond = "Good";
         espressobryggare.year = "2005";
         espressobryggare.price = "4000 kr";
         espressobryggare.photo = "../img/espresso.jpg";
@@ -127,7 +130,7 @@ $(document).ready (function(){
     
         let samsungTv = new Products();
         samsungTv.name = "Samsung 75 tum HDR";
-        samsungTv.desc = "Samsung 75 tums HDR 8 serien premium Tv. Medföljer Vogels tunna väggfäste.";
+        samsungTv.desc = "Samsung 75 inch HDR 8 Series Premium Tv. Supplied with Vogel's thin wall mount.";
         samsungTv.cond = "Fint skick";
         samsungTv.year = "2018";
         samsungTv.price = "15500 kr";
@@ -137,8 +140,8 @@ $(document).ready (function(){
     
         let epson = new Products();
         epson.name = "Epson 4K Projektor";
-        epson.desc = "EH-TW 9300 ";
-        epson.cond = "Fint skick";
+        epson.desc = "EH-TW 9300 Use only a few times, recently serviced with a new lamp. ";
+        epson.cond = "Great";
         epson.year = "2017";
         epson.price = "1200 kr";
         epson.photo = "../img/epson.jpg";
@@ -159,10 +162,12 @@ $(document).ready (function(){
             let productDiv = $("<div>").attr("class", "productDiv col-12 p-0").appendTo(borderDiv);
             let photoDiv = $("<div></div>").attr("class", "col-12 p-0 photoDiv").appendTo(productDiv);
             let photoShow = $("<img>").attr("src", productList[i].photo).appendTo(photoDiv).attr("class", "photos");
-            let infoDiv = $("<div>").attr("class", "row col-12 infoDiv p-0 m-0").appendTo(productDiv);
-            let titleSpan = $("<span>").attr("class", "col-12 m-0 title").html(productList[i].name).appendTo(infoDiv);
-            let descSpan = $("<span>").attr("class", "col-12 m-0 description").html(productList[i].desc).appendTo(infoDiv);
-            let priceSpan = $("<span>").attr("class", "col-12 m-0 price").html(productList[i].price).appendTo(infoDiv);
+            let infoDiv = $("<div>").attr("class", "row infoDiv p-0 m-0").appendTo(productDiv);
+            let innerInfo = $("<div>").attr ("class", "col-12 innerDiv p-0 m-0").appendTo(infoDiv);
+            let rowInner = $("<div>").attr ("class", "row infoRow p-0 m-0").appendTo(innerInfo);
+            let titleSpan = $("<span>").attr("class", "col-12 m-0 title").html(productList[i].name).appendTo(rowInner);
+            let descSpan = $("<span>").attr("class", "col-12 m-0 description").html(productList[i].desc).appendTo(rowInner);
+            let priceSpan = $("<span>").attr("class", "col-12 m-0 price").html(productList[i].price).appendTo(rowInner);
             let buttonDiv = $("<div>").attr("class", "row col-12 buttonDiv").appendTo(infoDiv);
             let modalBut = $("<button>").attr("type","button").attr("class", "col-5").text("Läs mer").appendTo(buttonDiv);
             let buyBut = $("<button>").attr("type","button").attr("class", "col-5").text("köp").appendTo(buttonDiv);
