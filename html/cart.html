@@ -30,22 +30,25 @@
     </div>
         <div class="row">
             <div class="container">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-12">
                     <h4>Cart
+                            <hr />
+                            <hr />
+                            <hr />
                         <span class="price" style="color:black">
                             <i class="fa fa-shopping-cart"></i>
                             <b>4</b>
                         </span>
                     </h4>
-                    <ul id="productResult">
-
+                    <ul class="container" id="productResult">
+                        
                     </ul>
                     <!-- <p><a href="#">Product 1</a> <span class="price">$15</span></p>
                     <p><a href="#">Product 2</a> <span class="price">$5</span></p>
                     <p><a href="#">Product 3</a> <span class="price">$8</span></p>
                     <p><a href="#">Product 4</a> <span class="price">$2</span></p> -->
                     <hr>
-                    <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                    <p>Total <span class="priceSum" style="color:black"><b></b></span></p>
                 </div>  
                             <form >
                                 <div> <!-- <div class="row col-75"> -->
@@ -90,21 +93,28 @@
                                     </div>
                                     <!-- <label for="pname">PayPal</label>
                                     <label for="sname">Swish</label> -->
-                                    
-                                    <label class="btn btn-secondary active">
-                                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Swish
-                                    </label>
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" name="options" id="option2" autocomplete="off"> PayPal
-                                    </label>
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" name="options" id="option3" autocomplete="off"> Kontant
-                                    </label> 
-                                    <label>
-                                            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as PayPal
-                                    </label>
+                                    <div class="col-lg-6 col-md-6 pay">
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Swish
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="option2" autocomplete="off"> PayPal
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 pay">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="option3" autocomplete="off"> Faktura
+                                        </label>
+                                        <label>
+                                            <input type="submit" value="Place your order" class="btn">
+                                        </label>
+                                    </div>
+                                     
+                                   
                                     <div>
-                                        <input type="submit" value="Place your order" class="btn">
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as PayPal
+                                        </label>
                                     </div>
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     </div> 

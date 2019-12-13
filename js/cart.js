@@ -73,7 +73,7 @@ $(function(){
         iphone7.desc = "Fin Iphone 7 som alltid haft skydd av både skal och glasskydd.";
         iphone7.cond = "Fint skick";
         iphone7.year = "2015";
-        iphone7.price ="2000 kr";
+        iphone7.price = 2000;
         iphone7.photo = "../img/Iphone7.jpg";
         iphone7.categ ="phone";
        
@@ -82,7 +82,7 @@ $(function(){
         appleTv.desc = "32 GB, HDMI kabel medföljer.";
         appleTv.cond = "Fint skick";
         appleTv.year = "2017";
-        appleTv.price = "1200 kr";
+        appleTv.price = 1200;
         appleTv.photo = "../img/appletv.jpg";
         appleTv.categ = "accessories";
     
@@ -91,7 +91,7 @@ $(function(){
         nikonD810.desc = "28347 exponeringar, kartong och manual medföljer.";
         nikonD810.cond = "Topp Skick.";
         nikonD810.year = "2018";
-        nikonD810.price = "11200 kr";
+        nikonD810.price = 11200;
         nikonD810.photo = "../img/Nikond810.jpg";
         nikonD810.categ = "camera";
     
@@ -101,7 +101,7 @@ $(function(){
         playstation4.desc = "medföljer 2 konsoller.";
         playstation4.cond = "Bra skick.";
         playstation4.year = "2017";
-        playstation4.price = "2400 kr";
+        playstation4.price = 2400;
         playstation4.photo = "../img/Playstation4.jpg";
         playstation4.categ = "accessories";
     
@@ -111,7 +111,7 @@ $(function(){
         sonyk.desc = "20.1 megapixel Sony DSC-100M3 Cyber-Shoot, 3tums LCD skärm som går att vinkla. Filmar i full HD.";
         sonyk.cond = "Okej skick";
         sonyk.year = "2017";
-        sonyk.price = "1000 kr";
+        sonyk.price = 1000;
         sonyk.photo = "../img/sonyDSC.jpg";
         sonyk.categ = "camera";
     
@@ -121,7 +121,7 @@ $(function(){
         espressobryggare.desc = "Oanvänd sen 2011. Inklusive Lux kaffekvarn och barrista presshandtag. Rostfritt stål.";
         espressobryggare.cond = "Fint skick";
         espressobryggare.year = "2005";
-        espressobryggare.price = "4000 kr";
+        espressobryggare.price = 4000;
         espressobryggare.photo = "../img/espresso.jpg";
         espressobryggare.categ = "accessories";
     
@@ -131,7 +131,7 @@ $(function(){
         samsungTv.desc = "Samsung 75 tums HDR 8 serien premium Tv. Medföljer Vogels tunna väggfäste.";
         samsungTv.cond = "Fint skick";
         samsungTv.year = "2018";
-        samsungTv.price = "15500 kr";
+        samsungTv.price = 15500;
         samsungTv.photo = "../img/samsungtv.jpg";
         samsungTv.categ = "tv";
     
@@ -141,7 +141,7 @@ $(function(){
         epson.desc = "EH-TW 9300 ";
         epson.cond = "Fint skick";
         epson.year = "2017";
-        epson.price = "1200 kr";
+        epson.price = 1200;
         epson.photo = "../img/epson.jpg";
         epson.categ = "accessories";
     
@@ -201,19 +201,27 @@ $(function(){
     let titlePresented = $("#productResult"); // <ul>
     titlePresented.html("");
 
+    let sum = 0;
+    priceSum
     for (let i = 0; i < cartList.length; i++){
         let newLi = $("<li>"); // <li></li>
-        let img = $("<img>").attr("src", cartList[i].photo).addClass("img-thumbnail");
+        let imgcontainer = $("<div>").addClass("img-container");
+        let img = $("<img>").attr("src", cartList[i].photo).addClass("img-fluid img-responsive img-thumbnail");
+        imgcontainer.append(img);
+        let row = $("<hr />");
         let title = $("<span>").text(cartList[i].name);
         let price = $("<span>").text(cartList[i].price);
         let space = " ";
         let text = "sek";
+        sum += parseInt(cartList[i].price);
         // let titlePresented = document.createElement("div");
         
-        newLi.append(img).append(space).append(title).append(space).append(price).append(space).append(text); // <li>Kamera</li>
+        newLi.append(row).append(imgcontainer).append(space).append(title).append(space).append(price).append(space).append(text); // <li>Kamera</li>
         titlePresented.append(newLi); // <ul><li>Kamera</li></ul>
         // console.log(titlePresented);
     }
+    
+    console.log(sum);
     // Skapar upp titlar
     // let titlePresented = document.createElement("p");
     // titlePresented.innerHTML = myFlickrList[i].title;
