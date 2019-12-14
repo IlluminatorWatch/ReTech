@@ -3,54 +3,76 @@
     padding: 0;
 }
 
-.my-carousel {
-    display: flex;
-}
-
 .navbar {
     border-bottom: 2px solid #FF9D00;
 }
 
 body {
-    padding-top: 90px;
+    padding-top: 70px;
 }
 
-.container {
+#maincontainer {
+    color: indianred;
+    padding-bottom: 50px;
+}
+
+.nav-item {
+    padding-left: 2vw;
+}
+
+.productDiv {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: 430px;
+}
+
+.productDiv .photoDiv .photos {
+    object-fit: cover;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    height: 200px;
 }
 
-.container-fluid {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+.productDiv .infoDiv {
+    align-content: center;
 }
 
-.row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+.productDiv .infoDiv .title {
+    font-size: 1.9em;
 }
 
-#goToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    border: none;
-    background-color: #FF9D00;
-    color: blue;
-    cursor: pointer;
-    padding: 10px;
+.productDiv .infoDiv .description {
+    font-size: 0.9em;
+    padding: 4px;
+}
+
+.productDiv .infoDiv .price {
+    font-size: 1.4em;
+    color: #373737;
+    font-weight: bold;
+    text-align: right;
+}
+
+.productDiv .buttonDiv {
+    justify-content: space-around;
+    bottom: 0px;
+    padding: 0;
+    margin: 0;
+}
+
+.productDiv .buttonDiv button {
+    background-color: lightgrey;
+    color: black;
     border-radius: 4px;
+}
+
+#myModal {
+    position: fixed;
+    z-index: 1;
+    left: 25%;
+    top: 10%;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
 }
 
 
@@ -190,29 +212,5 @@ body {
         display: block;
         margin-right: 0;
         font-weight: 600
-    }
-}
-
-@media (min-width: 576px) {
-    .container {
-        max-width: 540px;
-    }
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) {
-    .container {
-        max-width: 960px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
     }
 }
