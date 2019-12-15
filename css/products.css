@@ -1,7 +1,7 @@
 .productDiv {
   border: 1px solid lightgray;
   border-radius: 5px;
-  height: 430px; }
+  height: 365px; }
   .productDiv .photoDiv .photos {
     object-fit: cover;
     width: 100%;
@@ -26,7 +26,8 @@
     .productDiv .buttonDiv button {
       background-color: lightgrey;
       color: black;
-      border-radius: 4px; }
+      border-radius: 4px;
+      margin-top: 8px; }
 
 #myModal {
   position: fixed;
