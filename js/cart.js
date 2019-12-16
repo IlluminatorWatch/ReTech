@@ -55,6 +55,7 @@ $(function(){
     } 
   }
 }
+    let cart = [{"name":"Iphone 7"}, {"name":"AppleTv 4K"}, {"name":"Nikon D810"}, {"name":"Playstation 4"}, {"name":"Sony DSC-100M3"}, {"name":"ASCA Dream Polished"}, {"name":"Samsung 75 tum HDR"}];
 
     let localProducts = localStorage.getItem("productList") || '[]'; // lägger värdet av todoValue i egen variabel 
     let productList = JSON.parse(localProducts); //Gör värdet av valuefrom i todoList
@@ -207,7 +208,38 @@ $(function(){
     // $(sum).append(s);
     // sum.innerHTML
     // document.createElement(s).appendChild(sum);
+        // localStorage.setItem("todoList", JSON.stringify(todoList));
+    // list = JSON.parse(localStorage.getItem("todoList")); 
+    // console.log(list)
+    // printList();
 
+    function printList() {
+        let element = document.getElementsByTagName("ul");
+        // let myList
+        
+        // Loop som skapar listan Todo
+        for(let i = 0; i < cart.length; i++){
+            let newRow = document.createElement("li");
+                
+                newRow.innerHTML = cart[i];
+                
+                element[0].appendChild(newRow);
+        
+        // Skapar upp "done"-knappar
+        let createDoneButton = document.createElement("button");
+        createDoneButton.setAttribute("type", "button");
+        createDoneButton.id = "done";
+        createDoneButton.className = "button";
+        createDoneButton.innerHTML = "Done";
+        newRow.appendChild(createDoneButton);
+        createDoneButton.addEventListener('click', function() {
+            // console.log("Du klickade på position: ", i);
+            let removedItem = list.splice(i, 1);
+            doneList.push(removedItem[0]);
+            printList();    
+        })
+
+    }
     for (let i = 0; i < cartList.length; i++){
         let newLi = $("<li>"); // <li></li>
         let imgcontainer = $("<div>").addClass("img-container");
