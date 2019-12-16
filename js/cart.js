@@ -10,7 +10,7 @@ $(function(){
     this.categ;
     }
 
-    
+    // Hej
 
     function presentModal(productItems){
         document.getElementById("modalPhoto").innerHTML=("");
