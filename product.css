@@ -8,7 +8,7 @@
 }
 
 body {
-    padding-top: 70px;
+    padding-top: 100px;
 }
 
 #maincontainer {
@@ -37,7 +37,8 @@ body {
 }
 
 .productDiv .infoDiv .title {
-    font-size: 1.9em;
+    font-size: 1.6em;
+    padding-top: 10px;
 }
 
 .productDiv .infoDiv .description {
@@ -60,19 +61,42 @@ body {
 }
 
 .productDiv .buttonDiv button {
-    background-color: lightgrey;
-    color: black;
+    background-color: #FF9D00;
+    opacity: 0.9;
+    color: white;
     border-radius: 4px;
+}
+
+.productDiv .buttonDiv button:hover {
+    background-color: #FF9D00;
+    border: blue solid 1px;
+    color: blue;
+    cursor: pointer;
 }
 
 #myModal {
     position: fixed;
     z-index: 1;
     left: 25%;
-    top: 10%;
+    top: 15%;
     width: 50%;
     height: 100%;
     overflow: auto;
+}
+
+#myModal button {
+    background-color: #FF9D00;
+    padding: 10px;
+    opacity: 0.9;
+    color: white;
+    border-radius: 4px;
+}
+
+#myModal button:hover {
+    background-color: #FF9D00;
+    border: blue solid 1px;
+    color: blue;
+    cursor: pointer;
 }
 
 
@@ -87,12 +111,7 @@ body {
 }
 
 .site-footer hr {
-    border-top-color: #bbb;
-    opacity: 0.5
-}
-
-.site-footer hr.small {
-    margin: 20px 0
+    border: solid 1px #FF9D00;
 }
 
 .site-footer h6 {
@@ -201,10 +220,6 @@ body {
 
 .social-icons a.linkedin:hover {
     background-color: #007bb6
-}
-
-.social-icons a.dribbble:hover {
-    background-color: #ea4c89
 }
 
 @media (max-width:767px) {

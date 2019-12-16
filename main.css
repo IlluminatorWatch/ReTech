@@ -5,6 +5,9 @@
 
 .my-carousel {
     display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .navbar {
@@ -40,6 +43,11 @@ body {
     margin-left: -15px;
 }
 
+img:hover {
+    transform: scale(1.05);
+    transition: transform .10s;
+}
+
 #goToTopBtn {
     display: none;
     position: fixed;
@@ -65,12 +73,7 @@ body {
 }
 
 .site-footer hr {
-    border-top-color: #bbb;
-    opacity: 0.5
-}
-
-.site-footer hr.small {
-    margin: 20px 0
+    border: solid 1px #FF9D00;
 }
 
 .site-footer h6 {
@@ -179,10 +182,6 @@ body {
 
 .social-icons a.linkedin:hover {
     background-color: #007bb6
-}
-
-.social-icons a.dribbble:hover {
-    background-color: #ea4c89
 }
 
 @media (max-width:767px) {
