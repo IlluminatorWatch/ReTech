@@ -178,7 +178,7 @@ $(function(){
 
     productItems();
     
-    console.log (productList);
+    // console.log (productList);
     
     // let products = JSON.stringify([])
     // localStorage.setItem("products", products);
@@ -194,15 +194,20 @@ $(function(){
     //     $(this).append("");
     // });
 
-    let list = localStorage.getItem("cart") || '[]';
+    let list = localStorage.getItem("cart") || "[]";
     let cartList= JSON.parse(list);
 
     // let cartList =
     let titlePresented = $("#productResult"); // <ul>
     titlePresented.html("");
-
+    // let s = $(".priceSum");
     let sum = 0;
-    priceSum
+    // $(".priceSum").html(sum);
+    
+    // $(sum).append(s);
+    // sum.innerHTML
+    // document.createElement(s).appendChild(sum);
+
     for (let i = 0; i < cartList.length; i++){
         let newLi = $("<li>"); // <li></li>
         let imgcontainer = $("<div>").addClass("img-container");
@@ -220,8 +225,9 @@ $(function(){
         titlePresented.append(newLi); // <ul><li>Kamera</li></ul>
         // console.log(titlePresented);
     }
-    
-    console.log(sum);
+    let s = document.getElementById("priceSum");
+    s.innerText = sum;
+    // console.log(sum);
     // Skapar upp titlar
     // let titlePresented = document.createElement("p");
     // titlePresented.innerHTML = myFlickrList[i].title;
