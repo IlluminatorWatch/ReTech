@@ -208,6 +208,30 @@ img:hover {
   }
 }
 
+.salebox {
+  width: 330px;
+  height: 350px;
+  position: absolute;
+  top: -15px;
+  right: -22px;
+}
+
+.sale {
+  font: bold 44px Sans-Serif;
+  color: white;
+  text-align: center;
+  text-shadow: 4px 4px brown;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  padding: 60px 10px;
+  width: 490px;
+  height: 220px;
+  background: url(../img/christmas-sale.jpg);
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -230,28 +254,5 @@ img:hover {
   .container {
     max-width: 1140px;
   }
-}
-
-.salebox {
-  width: 330px;
-  height: 350px;
-  position: absolute;
-  top: -15px;
-  right: -22px;
-}
-
-.sale {
-  font: bold 44px Sans-Serif;
-  color: white;
-  text-align: center;
-  text-shadow: 4px 4px brown;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  padding: 60px 10px;
-  width: 490px;
-  height: 220px;
-  background: url(../img/christmas-sale.jpg);
 }
 /*# sourceMappingURL=main.css.map */

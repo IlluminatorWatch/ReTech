@@ -45,7 +45,7 @@ body {
 .productDiv {
     border: 1px solid lightgray;
     border-radius: 5px;
-    height: 430px;
+    height: 360px;
     .photoDiv {
         .photos {
             object-fit: cover;
@@ -80,6 +80,7 @@ body {
             opacity: 0.9;
             color: $color_3;
             border-radius: 4px;
+            margin-top: 7px;
             &:hover {
                 background-color: $background_color_1;
                 border: blue solid 1px;
