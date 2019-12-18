@@ -16,7 +16,7 @@ $(document).ready (function(){
     }
     
     //Presenterar modalen
-    function presentModal(productItems){
+    function presentModal(productItems, i){
          document.getElementById("modalPhoto").innerHTML=("");
 
 //Hämta modal i HTML & Visa den
@@ -41,25 +41,28 @@ $(document).ready (function(){
         iDesc.innerHTML ="<b>Description:</b> " + productItems.desc;
         iYear.innerHTML ="<b>Year:</b> " + productItems.year;
 
-  // Ger modalen en footer med info
+  // Ger modalen en footer med info samt köp knapp
      let footer = document.getElementsByClassName("footermodal");
-        modalBuy = document.getElementsByClassName("modalbuy");
-     
+        modalBuy = document.getElementsByClassName("modalBuy");
+        modalBuy[0].onclick = function(){
+            console.log("du klickade på köp");
+            removedProduct = productList.splice(i, 1);
+                cart.push(removedProduct[0]);
+                console.log(cart); 
+                localStorage.setItem("products", JSON.stringify(productList));
+                localStorage.setItem("cart", JSON.stringify(cart));
+                createProducts();
+
+        }
 
   //stänger mobal vid klick på kryss
     let close = document.getElementsByClassName("close")[0];
         close.onclick = function(){
-        console.log(modal);
+        
         modal.style.display="none";
         }
 
-     $("modalBuy").on("click", function(){
-            let removedProduct = productList.splice(i, 1);
-            cart.push(removedProduct[0]);
-            console.log(cart); 
-            localStorage.setItem("products", JSON.stringify(productList));
-            localStorage.setItem("cart", JSON.stringify(cart))
-        });
+     
   //stänger modal om du klickar utanför modalen
     window.onclick = function(event){
         if (event.target == modal) {
@@ -68,7 +71,7 @@ $(document).ready (function(){
   }
 }
 
-    function productItems(pitems){
+    function buildProductItems(pitems){
 
     let iphone7 = new Products();
     iphone7.name = "Iphone 7";
@@ -215,8 +218,13 @@ $(document).ready (function(){
     productList.push(jbl);
     productList.push(hpcomputer);
 
+    localStorage.setItem("products", JSON.stringify(productList));
+    localStorage.setItem("cart", JSON.stringify(cart));
 }
-    productItems();
+
+if(localStorage.getItem("products") === null) {
+    buildProductItems();
+}
 
 // skapar upp objekten / produkterna
 
@@ -254,7 +262,7 @@ $(document).ready (function(){
             let buyBut = $("<button>").attr("type","button").attr("class", "col-5").text("Buy").appendTo(buttonDiv);
             
             $(modalBut).on("click", function() {
-                presentModal(productList[i]);
+                presentModal(productList[i], i);
             });
 
             $(buyBut).on("click", function(){
@@ -263,11 +271,10 @@ $(document).ready (function(){
                 console.log(cart); 
                 localStorage.setItem("products", JSON.stringify(productList));
                 localStorage.setItem("cart", JSON.stringify(cart));
-
+                $("#productCont").html("");
+                createProducts();
               });
-            }
-                localStorage.setItem("products", JSON.stringify(productList));
-                localStorage.setItem("cart", JSON.stringify(cart));
+            } 
         }
 
     createProducts();
@@ -314,7 +321,7 @@ $(document).ready (function(){
          let modalBut = $("<button>").attr("type","button").attr("class", "col-5").text("Read more").appendTo(buttonDiv);
          let buyBut = $("<button>").attr("type","button").attr("class", "col-5").text("Buy").appendTo(buttonDiv);
            $(modalBut).on("click", function() {
-               presentModal(productList[i]);
+               presentModal(productList[i], i);
            });
         }
     });
