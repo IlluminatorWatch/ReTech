@@ -1,3 +1,6 @@
+$color_main1: #FF9D00;
+$color_main2: blue;
+$color_main3: green;
 $color_1: white;
 $color_2: grey;
 $color_3: whitesmoke;
@@ -13,47 +16,18 @@ $background_color_6: #29aafe;
 $background_color_7: #3b5998;
 $background_color_8: #00aced;
 $background_color_9: #007bb6;
-
-/* div {
-    min-width: 30%;
-    min-height: 30%;
-} */
-
-
-/* 
-* {
-    margin: 100;
-    padding: 100;
-} */
-
-
-/* 
-.form-control {
-    margin: 10;
-    padding: 10;
-} */
-
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
-
-
-/*footer*/
-
 * {
     margin: 0;
     padding: 0;
 }
 
 .navbar {
-    border-bottom: 2px solid #FF9D00;
+    border-bottom: 2px solid $color_main1;
 }
 
 body {
     padding-top: 85px;
-    background: url(img/palm.jpg) no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background: url(../img/palm.jpg) no-repeat;
     background-size: cover;
 }
 
@@ -111,7 +85,7 @@ span.price {
     line-height: 35px;
     color: $color_3;
     hr {
-        border: solid 1px #FF9D00;
+        border: solid 1px $color_main1;
     }
     h6 {
         color: $color_4;
@@ -170,7 +144,6 @@ span.price {
         margin-right: 8px;
         border-radius: 100%;
         -webkit-transition: all .2s linear;
-        -o-transition: all .2s linear;
         transition: all .2s linear;
         &:active {
             color: $color_4;
@@ -213,7 +186,7 @@ span.price {
     }
 }
 
-@media (max-width:991px) {
+@media (max-width: 991px) {
     .site-footer {
         [class^=col-] {
             margin-bottom: 30px;
@@ -221,7 +194,7 @@ span.price {
     }
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .site-footer {
         padding-bottom: 0;
         .copyright-text {

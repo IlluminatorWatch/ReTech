@@ -1,161 +1,264 @@
-//colors
-$black: black;
-$white: white;
-//fonts
-$font_0: Raleway;
-$font_1: sans-serif;
-$font_2: georgia;
-$font_3: serif;
-//urls
-$url_0: url();
+$color_main1: #FF9D00;
+$color_main2: blue;
+$color_main3: green;
+$color_2: whitesmoke;
+$color_3: #fff;
+$color_4: #96a2b2;
+$color_5: #818a91;
+$background_color_1: #FF9D00;
+$background_color_2: #26272b;
+$background_color_3: #33353d;
+$background_color_4: #eceeef;
+$background_color_5: #29aafe;
+$background_color_6: #3b5998;
+$background_color_7: #00aced;
+$background_color_8: #007bb6;
 
+/*footer*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
 
 .my-carousel {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-    display: flex; 
-  }
-  .site-footer
-  {
-    background-color:#26272b;
-    padding:45px 0 20px;
-    font-size:17px;
-    line-height:35px;
-    color: whitesmoke; 
-  }
-  .site-footer hr
-  {
-    border-top-color:#bbb;
-    opacity:0.5
-  }
-  .site-footer hr.small
-  {
-    margin:20px 0
-  }
-  .site-footer h6
-  {
-    color:#fff;
-    font-size:16px;
-    text-transform:uppercase;
-    padding-bottom: 20px; 
-   
-    letter-spacing: 2px; 
-   
-  }
-  
-  .footer-contact
-  {
-    padding-left:0;
-    list-style:none
-  
-  }
-    
-  
-  .site-footer .social-icons
-  {
-    text-align:right
-  }
-  .site-footer .social-icons a
-  {
-    width:40px;
-    height:40px;
-    line-height:40px;
-    margin-left:6px;
-    margin-right:0;
-    border-radius:100%;
-    background-color:#33353d
-  }
-  .copyright-text
-  {
-    margin:0
-  }
-  @media (max-width:991px)
-  {
-    .site-footer [class^=col-]
-    {
-      margin-bottom:30px
+.navbar {
+    border-bottom: 2px solid $color_main1;
+}
+
+body {
+    padding-top: 90px;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+img {
+    &:hover {
+        transform: scale(1.05);
+        transition: transform .10s;
     }
-  }
-  @media (max-width:767px)
-  {
-    .site-footer
-    {
-      padding-bottom:0
+}
+
+#goToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    border: none;
+    background-color: $background_color_1;
+    color: $color_main2;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.site-footer {
+    background-color: $background_color_2;
+    padding: 45px 0 20px;
+    font-size: 17px;
+    line-height: 35px;
+    color: $color_2;
+    hr {
+        border: solid 1px $color_main1;
     }
-    .site-footer .copyright-text,.site-footer .social-icons
-    {
-      text-align:center
+    h6 {
+        color: $color_3;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+        letter-spacing: 2px;
     }
-  }
-  .social-icons
-  {
-    padding-left:0;
-    margin-bottom:0;
-    list-style:none
-  }
-  .social-icons li
-  {
-    display:inline-block;
-    margin-bottom:4px
-  }
-  .social-icons li.title
-  {
-    margin-right:15px;
-    text-transform:uppercase;
-    color:#96a2b2;
-    font-weight:700;
-    font-size:13px
-  }
-  .social-icons a{
-    background-color:#eceeef;
-    color:#818a91;
-    font-size:16px;
-    display:inline-block;
-    line-height:44px;
-    width:44px;
-    height:44px;
-    text-align:center;
-    margin-right:8px;
-    border-radius:100%;
-    -webkit-transition:all .2s linear;
-    -o-transition:all .2s linear;
-    transition:all .2s linear
-  }
-  .social-icons a:active,.social-icons a:focus,.social-icons a:hover
-  {
-    color:#fff;
-    background-color:#29aafe
-  }
-  .social-icons.size-sm a
-  {
-    line-height:34px;
-    height:34px;
-    width:34px;
-    font-size:14px
-  }
-  .social-icons a.facebook:hover
-  {
-    background-color:#3b5998
-  }
-  .social-icons a.twitter:hover
-  {
-    background-color:#00aced
-  }
-  .social-icons a.linkedin:hover
-  {
-    background-color:#007bb6
-  }
-  .social-icons a.dribbble:hover
-  {
-    background-color:#ea4c89
-  }
-  @media (max-width:767px)
-  {
-    .social-icons li.title
-    {
-      display:block;
-      margin-right:0;
-      font-weight:600
+    .social-icons {
+        text-align: right;
+        a {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: 6px;
+            margin-right: 0;
+            border-radius: 100%;
+            background-color: $background_color_3;
+        }
     }
-  
-  
-  }
+}
+
+.footer-contact {
+    padding-left: 0;
+    list-style: none;
+}
+
+.copyright-text {
+    margin: 0;
+}
+
+.social-icons {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    li {
+        display: inline-block;
+        margin-bottom: 4px;
+    }
+    li.title {
+        margin-right: 15px;
+        text-transform: uppercase;
+        color: $color_4;
+        font-weight: 700;
+        font-size: 13px;
+    }
+    a {
+        background-color: $background_color_4;
+        color: $color_5;
+        font-size: 16px;
+        display: inline-block;
+        line-height: 44px;
+        width: 44px;
+        height: 44px;
+        text-align: center;
+        margin-right: 8px;
+        border-radius: 100%;
+        -webkit-transition: all .2s linear;
+        -o-transition: all .2s linear;
+        transition: all .2s linear;
+        &:active {
+            color: $color_3;
+            background-color: $background_color_5;
+        }
+        &:focus {
+            color: $color_3;
+            background-color: $background_color_5;
+        }
+        &:hover {
+            color: $color_3;
+            background-color: $background_color_5;
+        }
+    }
+    a.facebook {
+        &:hover {
+            background-color: $background_color_6;
+        }
+    }
+    a.twitter {
+        &:hover {
+            background-color: $background_color_7;
+        }
+    }
+    a.linkedin {
+        &:hover {
+            background-color: $background_color_8;
+        }
+    }
+}
+
+.social-icons.size-sm {
+    a {
+        line-height: 34px;
+        height: 34px;
+        width: 34px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width:991px) {
+    .site-footer {
+        [class^=col-] {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media (max-width:767px) {
+    .site-footer {
+        padding-bottom: 0;
+        .copyright-text {
+            text-align: center;
+        }
+        .social-icons {
+            text-align: center;
+        }
+    }
+    .social-icons {
+        li.title {
+            display: block;
+            margin-right: 0;
+            font-weight: 600;
+        }
+    }
+}
+
+.salebox {
+    width: 330px;
+    height: 350px;
+    position: absolute;
+    top: -15px;
+    right: -22px;
+}
+
+.sale {
+    font: bold 44px Sans-Serif;
+    color: white;
+    text-align: center;
+    text-shadow: 4px 4px brown;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    padding: 60px 10px;
+    width: 490px;
+    height: 220px;
+    background: url(../img/christmas-sale.jpg);
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
