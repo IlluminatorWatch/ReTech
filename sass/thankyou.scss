@@ -1,0 +1,25 @@
+$color_main1: #FF9D00;
+$color_main2: blue;
+$color_main3: green;
+$color_w:white;
+body {
+    background: url(../img/thk_bg_1.jpg) no-repeat;
+    background-size: 1400px 800px;
+}
+
+#date {
+    color: $color_w;
+    font-size: 20px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.btn {
+    background-color: green;
+    color: $color_w;
+    border-radius: 4px;
+    &:hover {
+        background-color: $color_main1;
+        border: green solid 1px;
+        cursor: pointer;
+    }
+}

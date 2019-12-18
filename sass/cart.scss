@@ -1,3 +1,6 @@
+$color_main1: #FF9D00;
+$color_main2: blue;
+$color_main3: green;
 $color_1: white;
 $color_2: grey;
 $color_3: whitesmoke;
@@ -19,7 +22,7 @@ $background_color_9: #007bb6;
 }
 
 .navbar {
-    border-bottom: 2px solid #FF9D00;
+    border-bottom: 2px solid $color_main1;
 }
 
 body {
@@ -82,7 +85,7 @@ span.price {
     line-height: 35px;
     color: $color_3;
     hr {
-        border: solid 1px #FF9D00;
+        border: solid 1px $color_main1;
     }
     h6 {
         color: $color_4;

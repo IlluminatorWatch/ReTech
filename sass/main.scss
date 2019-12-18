@@ -1,4 +1,6 @@
-$color_1: blue;
+$color_main1: #FF9D00;
+$color_main2: blue;
+$color_main3: green;
 $color_2: whitesmoke;
 $color_3: #fff;
 $color_4: #96a2b2;
@@ -27,7 +29,7 @@ $background_color_8: #007bb6;
 }
 
 .navbar {
-    border-bottom: 2px solid #FF9D00;
+    border-bottom: 2px solid $color_main1;
 }
 
 body {
@@ -73,7 +75,7 @@ img {
     right: 30px;
     border: none;
     background-color: $background_color_1;
-    color: $color_1;
+    color: $color_main2;
     cursor: pointer;
     padding: 10px;
     border-radius: 4px;
@@ -86,7 +88,7 @@ img {
     line-height: 35px;
     color: $color_2;
     hr {
-        border: solid 1px #FF9D00;
+        border: solid 1px $color_main1;
     }
     h6 {
         color: $color_3;

@@ -1,3 +1,6 @@
+$color_main1: #FF9D00;
+$color_main2: blue;
+$color_main3: green;
 $color_1: indianred;
 $color_2: #373737;
 $color_3: white;
@@ -23,7 +26,7 @@ $background_color_8: #007bb6;
 }
 
 .navbar {
-    border-bottom: 2px solid #FF9D00;
+    border-bottom: 2px solid $color_main1;
 }
 
 body {
@@ -118,7 +121,7 @@ body {
     line-height: 35px;
     color: $color_5;
     hr {
-        border: solid 1px #FF9D00;
+        border: solid 1px $color_main1;
     }
     h6 {
         color: $color_6;
