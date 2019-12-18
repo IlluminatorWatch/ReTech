@@ -1,84 +1,23 @@
 $color_main1: #FF9D00;
 $color_main2: blue;
 $color_main3: green;
-$color_1: white;
-$color_2: grey;
-$color_3: whitesmoke;
-$color_4: #fff;
-$color_5: #96a2b2;
-$color_6: #818a91;
-$background_color_1: #4CAF50;
-$background_color_2: #45a049;
-$background_color_3: #26272b;
-$background_color_4: #33353d;
-$background_color_5: #eceeef;
-$background_color_6: #29aafe;
-$background_color_7: #3b5998;
-$background_color_8: #00aced;
-$background_color_9: #007bb6;
+$color_w:white;
 * {
     margin: 0;
     padding: 0;
 }
 
 .navbar {
-    border-bottom: 2px solid $color_main1;
+    border-bottom: 2px solid #FF9D00;
 }
 
 body {
-    padding-top: 85px;
-    background: url(../img/palm.jpg) no-repeat;
-    background-size: cover;
+    padding-top: 90px;
 }
 
-#productResult {
-    min-width: 50%;
-    min-height: 50%;
-}
 
-.img-thumbnail {
-    max-height: 60px;
-}
+/*footer*/
 
-input[type=text] {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-label {
-    margin-bottom: 10px;
-    display: block;
-}
-
-.icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
-}
-
-.btn {
-    background-color: $background_color_1;
-    color: $color_1;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
-    &:hover {
-        background-color: $background_color_2;
-    }
-}
-
-span.price {
-    color: $color_2;
-}
-
-//footer
 .site-footer {
     background-color: $background_color_3;
     padding: 45px 0 20px;
@@ -211,3 +150,5 @@ span.price {
         }
     }
 }
+
+//test
