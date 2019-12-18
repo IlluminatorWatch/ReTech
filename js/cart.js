@@ -223,8 +223,11 @@ $(function(){
         console.log(cart);
         
         // Loop som skapar listan myCart
+        // .each(products, function(i, product){
+	
+        // })
         for(let i = 0; i < cart.length; i++){
-            console.log(i);
+            // console.log(i);
             let newRow = $("<li>");
                 //newRow.innerHTML = cart[i].name;
                 //element[0].appendChild(newRow);
@@ -234,19 +237,33 @@ $(function(){
              newRow.append(title).append(price);
 
             // Skapar upp "delete"-knappar
-            let createDoneButton = document.createElement("button");
-            createDoneButton.setAttribute("type", "button");
-            //createDoneButton.id = "delete";
-            createDoneButton.className = "button";
-            createDoneButton.innerHTML = "Delete";
-            newRow.append(createDoneButton);
-            createDoneButton.addEventListener('click', function() {
-                // console.log("Du klickade på position: ", i);
+            let createDeleteButton = document.createElement("button");
+            // let createDeleteButton = $("<button>").text("Delete");
+            // $("#productResult").append(createDeleteButton);
+            createDeleteButton.setAttribute("type", "button");
+            //createDeleteButton.id = "delete";
+            createDeleteButton.className = "button";
+            createDeleteButton.innerHTML = "Delete";
+            newRow.append(createDeleteButton);
+            createDeleteButton.addEventListener('click', function() {
+                console.log("Du klickade på position: ", i);
                 let removedItem = cart.splice(i, 1);
                 doneCart.push(removedItem[0]);
+                // console.log(removedItem)
                 printCart();    
             })
+            // $("button").on("click", function(){
+            // });
+            
 
+            // $("button")on("click,{product:p[i]},handleClick");
+            // $(function(){
+            //     $("button.button").on("click", function(){
+            //     $(this).parrent().parent()
+            //     $(this).closest(".product")
+            //     $(this).parents(".product").addClass(something);
+            //     });
+            // });
         }
     // for (let i = 0; i < cartList.length; i++){
     //     let newLi = $("<li>"); // <li></li>
