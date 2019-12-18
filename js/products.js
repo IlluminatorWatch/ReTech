@@ -2,8 +2,9 @@ $(document).ready (function(){
     let productList = JSON.parse(localStorage.getItem("products")) || [];
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let searchRes = [];
+   
+    let badge = $("#badge").text(cart.length);
 
-       
     //Mall för objekten
     function Products(){
     this.name;
@@ -51,8 +52,11 @@ $(document).ready (function(){
                 console.log(cart); 
                 localStorage.setItem("products", JSON.stringify(productList));
                 localStorage.setItem("cart", JSON.stringify(cart));
+                modal.style.display="none";
                 createProducts();
-
+                console.log(cart.lenght);
+                 console.log(productList.lenght);
+                
         }
 
   //stänger mobal vid klick på kryss
@@ -221,7 +225,7 @@ $(document).ready (function(){
     localStorage.setItem("products", JSON.stringify(productList));
     localStorage.setItem("cart", JSON.stringify(cart));
 }
-
+// om localstorage listan redan finns, skapa den inte igen.
 if(localStorage.getItem("products") === null) {
     buildProductItems();
 }
@@ -264,11 +268,11 @@ if(localStorage.getItem("products") === null) {
             $(modalBut).on("click", function() {
                 presentModal(productList[i], i);
             });
-
+            
             $(buyBut).on("click", function(){
                 removedProduct = productList.splice(i, 1);
-                cart.push(removedProduct[0]);
-                console.log(cart); 
+                cart.push(removedProduct[0]); 
+                badge = $("#badge").text(cart.length);
                 localStorage.setItem("products", JSON.stringify(productList));
                 localStorage.setItem("cart", JSON.stringify(cart));
                 $("#productCont").html("");
@@ -325,5 +329,6 @@ if(localStorage.getItem("products") === null) {
            });
         }
     });
-
+    console.log(cart.lenght);
+    console.log(productList.lenght);
 });
