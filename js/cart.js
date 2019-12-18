@@ -1,3 +1,4 @@
+let doneCart = [];
 $(function(){
 
     function Products(){
@@ -55,14 +56,16 @@ $(function(){
     } 
   }
 }
-    let cart = [{"name":"Iphone 7"}, {"name":"AppleTv 4K"}, {"name":"Nikon D810"}, {"name":"Playstation 4"}, {"name":"Sony DSC-100M3"}, {"name":"ASCA Dream Polished"}, {"name":"Samsung 75 tum HDR"}];
+
+    let cart = [{"name":"Iphone 7", "price":"2000"}, {"name":"AppleTv 4K", "price":"1200"}, {"name":"Nikon D810", "price":"11200"}, {"name":"Playstation 4", "price":"2400"}, {"name":"Sony DSC-100M3", "price":"1000"}, {"name":"ASCA Dream Polished", "price":"4000"}, {"name":"Samsung 75 tum HDR", "price":"15500"}, {"name":"Epson 4K Projektor", "price":"1200"}];
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     let localProducts = localStorage.getItem("productList") || '[]'; // lägger värdet av todoValue i egen variabel 
     let productList = JSON.parse(localProducts); //Gör värdet av valuefrom i todoList
   
     let localCart = localStorage.getItem("cart") || '[]'; // lägger värdet av todoValue i egen variabel 
-    let cart = JSON.parse(localCart); //Gör värdet av valuefrom i todoList
-  
+    cart = JSON.parse(localCart); //Gör värdet av valuefrom i todoList
+    console.log(cart);
     function productItems(pitems){
 
         productList = [];
@@ -177,7 +180,7 @@ $(function(){
             localStorage.setItem("Cart", JSON.stringify(cart));
         }
 
-    productItems();
+    //productItems();
     
     // console.log (productList);
     
@@ -211,52 +214,57 @@ $(function(){
         // localStorage.setItem("todoList", JSON.stringify(todoList));
     // list = JSON.parse(localStorage.getItem("todoList")); 
     // console.log(list)
-    // printList();
+    // printCart
 
-    function printList() {
-        let element = document.getElementsByTagName("ul");
+    function printCart() {
+        console.log("Start");
+        let element = $("#productResult");
         // let myList
+        console.log(cart);
         
-        // Loop som skapar listan Todo
+        // Loop som skapar listan myCart
         for(let i = 0; i < cart.length; i++){
-            let newRow = document.createElement("li");
-                
-                newRow.innerHTML = cart[i];
-                
-                element[0].appendChild(newRow);
-        
-        // Skapar upp "done"-knappar
-        let createDoneButton = document.createElement("button");
-        createDoneButton.setAttribute("type", "button");
-        createDoneButton.id = "done";
-        createDoneButton.className = "button";
-        createDoneButton.innerHTML = "Done";
-        newRow.appendChild(createDoneButton);
-        createDoneButton.addEventListener('click', function() {
-            // console.log("Du klickade på position: ", i);
-            let removedItem = list.splice(i, 1);
-            doneList.push(removedItem[0]);
-            printList();    
-        })
+            console.log(i);
+            let newRow = $("<li>");
+                //newRow.innerHTML = cart[i].name;
+                //element[0].appendChild(newRow);
+             let title = $("<span>").text(cart[i].name);
+             let price = $("<span>").text(cart[i].price);
+             element.append(newRow);
+             newRow.append(title).append(price);
 
-    }
-    for (let i = 0; i < cartList.length; i++){
-        let newLi = $("<li>"); // <li></li>
-        let imgcontainer = $("<div>").addClass("img-container");
-        let img = $("<img>").attr("src", cartList[i].photo).addClass("img-fluid img-responsive img-thumbnail");
-        imgcontainer.append(img);
-        let row = $("<hr />");
-        let title = $("<span>").text(cartList[i].name);
-        let price = $("<span>").text(cartList[i].price);
-        let space = " ";
-        let text = "sek";
-        sum += parseInt(cartList[i].price);
-        // let titlePresented = document.createElement("div");
+            // Skapar upp "delete"-knappar
+            let createDoneButton = document.createElement("button");
+            createDoneButton.setAttribute("type", "button");
+            //createDoneButton.id = "delete";
+            createDoneButton.className = "button";
+            createDoneButton.innerHTML = "Delete";
+            newRow.append(createDoneButton);
+            createDoneButton.addEventListener('click', function() {
+                // console.log("Du klickade på position: ", i);
+                let removedItem = cart.splice(i, 1);
+                doneCart.push(removedItem[0]);
+                printCart();    
+            })
+
+        }
+    // for (let i = 0; i < cartList.length; i++){
+    //     let newLi = $("<li>"); // <li></li>
+    //     let imgcontainer = $("<div>").addClass("img-container");
+    //     let img = $("<img>").attr("src", cartList[i].photo).addClass("img-fluid img-responsive img-thumbnail");
+    //     imgcontainer.append(img);
+    //     let row = $("<hr />");
+    //     let title = $("<span>").text(cartList[i].name);
+    //     let price = $("<span>").text(cartList[i].price);
+    //     let space = " ";
+    //     let text = "sek";
+    //     sum += parseInt(cartList[i].price);
+    //     // let titlePresented = document.createElement("div");
         
-        newLi.append(row).append(imgcontainer).append(space).append(title).append(space).append(price).append(space).append(text); // <li>Kamera</li>
-        titlePresented.append(newLi); // <ul><li>Kamera</li></ul>
-        // console.log(titlePresented);
-    }
+    //     newLi.append(row).append(imgcontainer).append(space).append(title).append(space).append(price).append(space).append(text); // <li>Kamera</li>
+    //     titlePresented.append(newLi); // <ul><li>Kamera</li></ul>
+    //     // console.log(titlePresented);
+    // }
     let s = document.getElementById("priceSum");
     s.innerText = sum;
     // console.log(sum);
@@ -270,6 +278,9 @@ $(function(){
     // poster.src = data.Poster;
     // result.appendChild(poster);
       
+    }
+
+printCart();
 });
 
 
