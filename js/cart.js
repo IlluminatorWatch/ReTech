@@ -61,7 +61,14 @@ $(function(){
   }
 }
 
-    
+    cart = [{"name":"Iphone 7", "price":"2000", "photo":"../img/Iphone7.jpg"}, {"name":"AppleTv 4K", "price":"1200", "photo":"../img/appletv.jpg"}, {"name":"Nikon D810", "price":"11200", "photo":"../img/Nikond810.jpg"}, {"name":"Playstation 4", "price":"2400", "photo":"../img/Playstation4.jpg"}, {"name":"Sony DSC-100M3", "price":"1000", "photo":"../img/SonyDSC.jpg"}, {"name":"ASCA Dream Polished", "price":"4000", "photo":"../img/espresso.jpg"}, {"name":"Samsung 75 tum HDR", "price":"15500", "photo":"../img/samsungtv.jpg"}, {"name":"Epson 4K Projektor", "price":"1200", "photo":"../img/epson.jpg"}];
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    let localProducts = localStorage.getItem("productList") || '[]'; // lägger värdet av todoValue i egen variabel 
+    let productList = JSON.parse(localProducts); //Gör värdet av valuefrom i todoList
+  
+    let localCart = localStorage.getItem("cart") || '[]'; // lägger värdet av todoValue i egen variabel 
+    cart = JSON.parse(localCart); //Gör värdet av valuefrom i todoList
     console.log(cart);
     function productItems(pitems){
 
@@ -227,10 +234,14 @@ $(function(){
             let newRow = $("<li>");
                 //newRow.innerHTML = cart[i].name;
                 //element[0].appendChild(newRow);
-             let title = $("<span>").text(cart[i].name);
-             let price = $("<span>").text(cart[i].price);
-             element.append(newRow);
-             newRow.append(title).append(price);
+            let imgcontainer = $("<div>").addClass("img-container");
+            let img = $("<img>").attr("src", cart[i].photo).addClass("img-fluid img-responsive img-thumbnail");
+            imgcontainer.append(img);
+            let row = $("<hr />");
+            let title = $("<span>").text(cart[i].name);
+            let price = $("<span>").text(cart[i].price);
+            element.append(newRow);
+            newRow.append(row).append(title).append(price);
 
             // Skapar upp "delete"-knappar
             let createDeleteButton = document.createElement("button");
