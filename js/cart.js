@@ -1,6 +1,10 @@
 let doneCart = [];
 $(function(){
 
+    let productList = JSON.parse(localStorage.getItem("products")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let badge = $("#badge").text(cart.length);
+
     function Products(){
     this.name;
     this.desc;
@@ -67,10 +71,6 @@ $(function(){
     cart = JSON.parse(localCart); //Gör värdet av valuefrom i todoList
     console.log(cart);
     function productItems(pitems){
-
-        productList = [];
-        cart = [];
-       
 
         let iphone7 = new Products();
         iphone7.name = "Iphone 7";
@@ -198,8 +198,8 @@ $(function(){
     //     $(this).append("");
     // });
 
-    let list = localStorage.getItem("cart") || "[]";
-    let cartList= JSON.parse(list);
+    // let list = localStorage.getItem("cart") || "[]";
+    // let cartList= JSON.parse(list);
 
     // let cartList =
     let titlePresented = $("#productResult"); // <ul>
@@ -217,8 +217,10 @@ $(function(){
     // printCart
 
     function printCart() {
+
         console.log("Start");
         let element = $("#productResult");
+        element.html=("");
         // let myList
         console.log(cart);
         
@@ -227,6 +229,7 @@ $(function(){
 	
         // })
         for(let i = 0; i < cart.length; i++){
+
             // console.log(i);
             let newRow = $("<li>");
                 //newRow.innerHTML = cart[i].name;
@@ -250,12 +253,24 @@ $(function(){
             createDeleteButton.innerHTML = "Delete";
             newRow.append(createDeleteButton);
             createDeleteButton.addEventListener('click', function() {
-                console.log("Du klickade på position: ", i);
-                let removedItem = cart.splice(i, 1);
-                doneCart.push(removedItem[0]);
+
+                removedProduct = cart.splice(i, 1);
+                productList.push(removedProduct[0]); 
+                badge = $("#badge").text(cart.length);
+                localStorage.setItem("products", JSON.stringify(productList));
+                localStorage.setItem("cart", JSON.stringify(cart));
+                $("#productResult").html("");
+                printCart();
+              });
+
+                //console.log("Du klickade på position: ", i);
+                //let removedItem = cart.splice(i, 1);
+                //doneCart.push(removedItem[0]);
                 // console.log(removedItem)
-                printCart();    
-            })
+                //element.html=("");
+                //console.log(" rensa");
+                //printCart();    
+            //});
             // $("button").on("click", function(){
             // });
             
@@ -300,8 +315,7 @@ $(function(){
     // result.appendChild(poster);
       
     }
-
-printCart();
+  printCart();  
 });
 
 
