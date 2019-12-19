@@ -60,7 +60,7 @@ $(function(){
   }
 }
 
-    cart = [{"name":"Iphone 7", "price":"2000", "photo":"../img/Iphone7.jpg"}, {"name":"AppleTv 4K", "price":"1200", "photo":"../img/appletv.jpg"}, {"name":"Nikon D810", "price":"11200", "photo":"../img/Nikond810.jpg"}, {"name":"Playstation 4", "price":"2400", "photo":"../img/Playstation4.jpg"}, {"name":"Sony DSC-100M3", "price":"1000", "photo":"../img/SonyDSC.jpg"}, {"name":"ASCA Dream Polished", "price":"4000", "photo":"../img/espresso.jpg"}, {"name":"Samsung 75 tum HDR", "price":"15500", "photo":"../img/samsungtv.jpg"}, {"name":"Epson 4K Projektor", "price":"1200", "photo":"../img/epson.jpg"}];
+    // cart = [{"name":"Iphone 7", "price":"2000", "photo":"../img/Iphone7.jpg"}, {"name":"AppleTv 4K", "price":"1200", "photo":"../img/appletv.jpg"}, {"name":"Nikon D810", "price":"11200", "photo":"../img/Nikond810.jpg"}, {"name":"Playstation 4", "price":"2400", "photo":"../img/Playstation4.jpg"}, {"name":"Sony DSC-100M3", "price":"1000", "photo":"../img/SonyDSC.jpg"}, {"name":"ASCA Dream Polished", "price":"4000", "photo":"../img/espresso.jpg"}, {"name":"Samsung 75 tum HDR", "price":"15500", "photo":"../img/samsungtv.jpg"}, {"name":"Epson 4K Projektor", "price":"1200", "photo":"../img/epson.jpg"}];
     localStorage.setItem("cart", JSON.stringify(cart));
 
     let localProducts = localStorage.getItem("productList") || '[]'; // lägger värdet av todoValue i egen variabel 
@@ -255,6 +255,7 @@ $(function(){
             createDeleteButton.addEventListener('click', function() {
 
                 removedProduct = cart.splice(i, 1);
+                // sum -= parseInt(cart[i].price);
                 productList.push(removedProduct[0]); 
                 badge = $("#badge").text(cart.length);
                 localStorage.setItem("products", JSON.stringify(productList));
