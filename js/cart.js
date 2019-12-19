@@ -15,7 +15,6 @@ $(function(){
     this.categ;
     }
 
-    // Hej
 
     function presentModal(productItems){
         document.getElementById("modalPhoto").innerHTML=("");
@@ -65,7 +64,7 @@ $(function(){
     localStorage.setItem("cart", JSON.stringify(cart));
 
     let localProducts = localStorage.getItem("productList") || '[]'; // lägger värdet av todoValue i egen variabel 
-    let productList = JSON.parse(localProducts); //Gör värdet av valuefrom i todoList
+    productList = JSON.parse(localProducts); //Gör värdet av valuefrom i todoList
   
     let localCart = localStorage.getItem("cart") || '[]'; // lägger värdet av todoValue i egen variabel 
     cart = JSON.parse(localCart); //Gör värdet av valuefrom i todoList
@@ -229,7 +228,8 @@ $(function(){
 	
         // })
         for(let i = 0; i < cart.length; i++){
-
+            // sum = "";
+            sum += parseInt(cart[i].price);
             // console.log(i);
             let newRow = $("<li>");
                 //newRow.innerHTML = cart[i].name;
@@ -241,7 +241,7 @@ $(function(){
             let title = $("<span>").text(cart[i].name);
             let price = $("<span>").text(cart[i].price);
             element.append(newRow);
-            newRow.append(row).append(title).append(price);
+            newRow.append(row).append(imgcontainer).append(title).append(price);
 
             // Skapar upp "delete"-knappar
             let createDeleteButton = document.createElement("button");
