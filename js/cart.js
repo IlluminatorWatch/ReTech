@@ -1,6 +1,10 @@
 let doneCart = [];
 $(function(){
 
+    let productList = JSON.parse(localStorage.getItem("products")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let badge = $("#badge").text(cart.length);
+
     function Products(){
     this.name;
     this.desc;
@@ -57,20 +61,9 @@ $(function(){
   }
 }
 
-    let cart = [{"name":"Iphone 7", "price":"2000"}, {"name":"AppleTv 4K", "price":"1200"}, {"name":"Nikon D810", "price":"11200"}, {"name":"Playstation 4", "price":"2400"}, {"name":"Sony DSC-100M3", "price":"1000"}, {"name":"ASCA Dream Polished", "price":"4000"}, {"name":"Samsung 75 tum HDR", "price":"15500"}, {"name":"Epson 4K Projektor", "price":"1200"}];
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    let localProducts = localStorage.getItem("productList") || '[]'; // lägger värdet av todoValue i egen variabel 
-    let productList = JSON.parse(localProducts); //Gör värdet av valuefrom i todoList
-  
-    let localCart = localStorage.getItem("cart") || '[]'; // lägger värdet av todoValue i egen variabel 
-    cart = JSON.parse(localCart); //Gör värdet av valuefrom i todoList
+    
     console.log(cart);
     function productItems(pitems){
-
-        productList = [];
-        cart = [];
-       
 
         let iphone7 = new Products();
         iphone7.name = "Iphone 7";
@@ -198,8 +191,8 @@ $(function(){
     //     $(this).append("");
     // });
 
-    let list = localStorage.getItem("cart") || "[]";
-    let cartList= JSON.parse(list);
+    // let list = localStorage.getItem("cart") || "[]";
+    // let cartList= JSON.parse(list);
 
     // let cartList =
     let titlePresented = $("#productResult"); // <ul>
@@ -217,8 +210,10 @@ $(function(){
     // printCart
 
     function printCart() {
+
         console.log("Start");
         let element = $("#productResult");
+        element.html=("");
         // let myList
         console.log(cart);
         
@@ -227,6 +222,7 @@ $(function(){
 	
         // })
         for(let i = 0; i < cart.length; i++){
+
             // console.log(i);
             let newRow = $("<li>");
                 //newRow.innerHTML = cart[i].name;
@@ -246,12 +242,24 @@ $(function(){
             createDeleteButton.innerHTML = "Delete";
             newRow.append(createDeleteButton);
             createDeleteButton.addEventListener('click', function() {
-                console.log("Du klickade på position: ", i);
-                let removedItem = cart.splice(i, 1);
-                doneCart.push(removedItem[0]);
+
+                removedProduct = cart.splice(i, 1);
+                productList.push(removedProduct[0]); 
+                badge = $("#badge").text(cart.length);
+                localStorage.setItem("products", JSON.stringify(productList));
+                localStorage.setItem("cart", JSON.stringify(cart));
+                $("#productResult").html("");
+                printCart();
+              });
+
+                //console.log("Du klickade på position: ", i);
+                //let removedItem = cart.splice(i, 1);
+                //doneCart.push(removedItem[0]);
                 // console.log(removedItem)
-                printCart();    
-            })
+                //element.html=("");
+                //console.log(" rensa");
+                //printCart();    
+            //});
             // $("button").on("click", function(){
             // });
             
@@ -296,8 +304,7 @@ $(function(){
     // result.appendChild(poster);
       
     }
-
-printCart();
+  printCart();  
 });
 
 
