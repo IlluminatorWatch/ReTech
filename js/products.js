@@ -246,19 +246,19 @@ $(document).ready (function(){
             let titleSpan = $("<span>").attr("class", "col-12 m-0 title").html(productList[i].name).appendTo(rowInner);
             let descSpan = $("<span>").attr("class", "col-12 m-0 description").html("<b>Condition </b>" + productList[i].cond +".").appendTo(rowInner);
             if (productList[i].cond == "New"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605 \u2605 \u2605 \u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605 \u2605 \u2605 \u2605 \u2605");
             }  
             if (productList[i].cond == "Great"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605 \u2605 \u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605 \u2605 \u2605 \u2605");
                 }
             if (productList[i].cond == "Good"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605 \u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605 \u2605 \u2605");
                 }
             if (productList[i].cond == "Okey"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605 \u2605");
                 }
             if (productList[i].cond == "Bad"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605");
             }
             let priceSpan = $("<span>").attr("class", "col-12 m-0 price").html(productList[i].price).appendTo(rowInner);
             let buttonDiv = $("<div>").attr("class", "row col-12 buttonDiv").appendTo(infoDiv);
@@ -332,6 +332,15 @@ $(document).ready (function(){
            $(modalBut).on("click", function() {
                presentModal(productList[i], i);
            });
+           $(buyBut).on("click", function(){
+            removedProduct = productList.splice(i, 1);
+            cart.push(removedProduct[0]); 
+            badge = $("#badge").text(cart.length);
+            localStorage.setItem("products", JSON.stringify(productList));
+            localStorage.setItem("cart", JSON.stringify(cart));
+            $("#productCont").html("");
+            createProducts();
+          });
         }
     });
     // presenterar dom 6 senaste produkterna vid klick på den kategorin.
@@ -374,6 +383,15 @@ $(document).ready (function(){
             let buyBut = $("<button>").attr("type","button").attr("class", "col-5").text("Buy").appendTo(buttonDiv);
               $(modalBut).on("click", function() {
                   presentModal(productList[i], i);
+              });
+              $(buyBut).on("click", function(){
+                removedProduct = productList.splice(i, 1);
+                cart.push(removedProduct[0]); 
+                badge = $("#badge").text(cart.length);
+                localStorage.setItem("products", JSON.stringify(productList));
+                localStorage.setItem("cart", JSON.stringify(cart));
+                $("#productCont").html("");
+                createProducts();
               });
            }
     });

@@ -60,7 +60,7 @@ $(function(){
   }
 }
 
-    cart = [];
+    
     localStorage.setItem("cart", JSON.stringify(cart));
 
     let localProducts = localStorage.getItem("productList") || '[]'; // lägger värdet av todoValue i egen variabel 
@@ -228,6 +228,8 @@ $(function(){
         // .each(products, function(i, product){
 	
         // })
+ 
+        }
         for(let i = 0; i < cart.length; i++){
             // sum = "";
             sum += parseInt(cart[i].price);
@@ -239,8 +241,8 @@ $(function(){
             let img = $("<img>").attr("src", cart[i].photo).addClass("img-fluid img-responsive img-thumbnail");
             imgcontainer.append(img);
             let row = $("<hr />");
-            let title = $("<span>").text(cart[i].name);
-            let price = $("<span>").text(cart[i].price);
+            let title = $("<span>").html("<h4>" + cart[i].name + "</h4>");
+            let price = $("<span>").html(" <b>Pris </b>" + cart[i].price);
             element.append(newRow);
             newRow.append(row).append(imgcontainer).append(title).append(price);
 
@@ -255,8 +257,8 @@ $(function(){
             newRow.append(createDeleteButton);
             createDeleteButton.addEventListener('click', function() {
 
+                sum =- parseInt(cart[i].price);
                 removedProduct = cart.splice(i, 1);
-                
                 productList.push(removedProduct[0]); 
                 badge = $("#badge").text(cart.length);
                 localStorage.setItem("products", JSON.stringify(productList));
@@ -304,7 +306,7 @@ $(function(){
     //     // console.log(titlePresented);
     // }
     let s = document.getElementById("priceSum");
-    s.innerText = sum;
+    s.innerText = sum + " kr";
     // console.log(sum);
     // Skapar upp titlar
     // let titlePresented = document.createElement("p");
@@ -318,6 +320,16 @@ $(function(){
       
     }
   printCart();  
+
+  $("#btnThankYou").on("click", function(){
+      cart = [];
+    badge = $("#badge").text(cart.length);
+    localStorage.setItem("cart", JSON.stringify(cart));
+   // localStorage.setItem("products", JSON.stringify(productList));
+   
+  });
+
+  
 });
 
 

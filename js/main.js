@@ -14,11 +14,14 @@ function scrollFunction() {
     }
 }
 
+
 function topFunction() {
     // console.log("top button clicked")
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-}
+   }
+    
+
 
 $(document).ready(function() {
 
@@ -96,19 +99,19 @@ $(document).ready(function() {
             let titleSpan = $("<span>").attr("class", "col-12 m-0 title").html(productList[i].name).appendTo(rowInner);
             let descSpan = $("<span>").attr("class", "col-12 m-0 description").html("<b>Condition </b>" + productList[i].cond +".").appendTo(rowInner);
             if (productList[i].cond == "New"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605 \u2605 \u2605 \u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605 \u2605 \u2605 \u2605 \u2605");
             }  
             if (productList[i].cond == "Great"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605 \u2605 \u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605 \u2605 \u2605 \u2605");
                 }
             if (productList[i].cond == "Good"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605 \u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605 \u2605 \u2605");
                 }
             if (productList[i].cond == "Okey"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605 \u2605");
                 }
             if (productList[i].cond == "Bad"){
-                $(descSpan).html("<b>Condition:</b>" + "\u2605");
+                $(descSpan).html("<b>Condition: </b>" + "\u2605");
             }
             let priceSpan = $("<span>").attr("class", "col-12 m-0 price").html(productList[i].price).appendTo(rowInner);
             let buttonDiv = $("<div>").attr("class", "row col-12 buttonDiv").appendTo(infoDiv);
