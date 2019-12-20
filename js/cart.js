@@ -1,6 +1,5 @@
 let doneCart = [];
 $(function(){
-
     let productList = JSON.parse(localStorage.getItem("products")) || [];
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let badge = $("#badge").text(cart.length);
@@ -229,7 +228,7 @@ $(function(){
 	
         // })
  
-        }
+        
         for(let i = 0; i < cart.length; i++){
             // sum = "";
             sum += parseInt(cart[i].price);
