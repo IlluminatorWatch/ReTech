@@ -57,7 +57,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="html/cart.html" class="nav-link active"> <i class="fas fa-shopping-basket"></i><span class="badge badge-notify my-cart-badge text-warning"> </span>
+                        <a href="html/cart.html" class="nav-link active"> <i class="fas fa-shopping-basket"></i><span class="badge badge-notify my-cart-badge text-warning" id="badge"> </span>
                         </a>
                     </li>
                 </ul>
@@ -139,84 +139,27 @@
         <hr class="mt-4">
 
         <!-- Content Row -->
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="img/motorola.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#">Motorola Moto G7 Power</a>
-                        </h4>
-                        <h5>1200 Kr</h5>
-                        <p class="card-text">
-                            Motorola G7 Power i mkt fint skick, sparsamt använd. Skärmskydd sedan dag 1. Svart färg. Olåst, fungerar med alla operatörer.
-                        </p>
-                    </div>
+        <div id="productCont"></div>
+       
+    </div>
+<!--Modal-->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modaltitle">ModalHeader</h2>
+                <button type="close" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="row" id="modalBody">
+                <div class="col-6" id="modalPhoto">
+                </div>
+                <div class="col-6" id="modalInfo">
+                    <p id="pCond" class="col-12"> som text</p>
+                    <p id="pDesc" class="col-12">text text 2</p>
+                    <p id="pYear" class="col-12"></p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="img/Jbl.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#">JBL, Infinity och Akai</a>
-                        </h4>
-                        <h5>800 Kr</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="img/Nikon D750.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#">Nikon D750</a>
-                        </h4>
-                        <h5>7900 kr</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="img/Philips 42 TV.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#">Philips 42 TV</a>
-                        </h4>
-                        <h5>400 Kr</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="img/Google Home Mini.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#">Google Home Mini</a>
-                        </h4>
-                        <h5>250 Kr</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="img/HP Elitebook 8470p.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#">HP Elitebook 8470p</a>
-                        </h4>
-                        <h5>1600 Kr</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                    </div>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="modalBuy">Buy</button>
             </div>
         </div>
     </div>

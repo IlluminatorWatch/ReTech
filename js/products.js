@@ -1,9 +1,9 @@
 $(document).ready (function(){
     let productList = JSON.parse(localStorage.getItem("products")) || [];
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let searchRes = [];
-   
     let badge = $("#badge").text(cart.length);
+    let searchRes = [];
+ 
 
     //Mall för objekten
     function Products(){
@@ -225,12 +225,12 @@ $(document).ready (function(){
     localStorage.setItem("products", JSON.stringify(productList));
     localStorage.setItem("cart", JSON.stringify(cart));
 }
-// om localstorage listan redan finns, skapa den inte igen.
-if(localStorage.getItem("products") === null) {
-    buildProductItems();
+    // om localstorage listan redan finns, skapa den inte igen.
+    if(localStorage.getItem("products") === null) {
+     buildProductItems();
 }
 
-// skapar upp objekten / produkterna
+    // skapar upp objekten / produkterna samt matchar condition mot stjärnor (great/good/bad)
 
     function createProducts(){
 
@@ -246,19 +246,19 @@ if(localStorage.getItem("products") === null) {
             let titleSpan = $("<span>").attr("class", "col-12 m-0 title").html(productList[i].name).appendTo(rowInner);
             let descSpan = $("<span>").attr("class", "col-12 m-0 description").html("<b>Condition </b>" + productList[i].cond +".").appendTo(rowInner);
             if (productList[i].cond == "New"){
-                $(descSpan).html("<b>Condition:</b>" + " \u2605 \u2605 \u2605 \u2605 \u2605");
+                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605 \u2605 \u2605 \u2605");
             }  
             if (productList[i].cond == "Great"){
-                $(descSpan).html("<b>Condition:</b>" + " \u2605 \u2605 \u2605 \u2605");
+                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605 \u2605 \u2605");
                 }
             if (productList[i].cond == "Good"){
-                $(descSpan).html("<b>Condition:</b>" + " \u2605 \u2605 \u2605");
+                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605 \u2605");
                 }
             if (productList[i].cond == "Okey"){
-                $(descSpan).html("<b>Condition:</b>" + " \u2605 \u2605");
+                $(descSpan).html("<b>Condition:</b>" + "\u2605 \u2605");
                 }
             if (productList[i].cond == "Bad"){
-                $(descSpan).html("<b>Condition:</b>" + " \u2605");
+                $(descSpan).html("<b>Condition:</b>" + "\u2605");
             }
             let priceSpan = $("<span>").attr("class", "col-12 m-0 price").html(productList[i].price).appendTo(rowInner);
             let buttonDiv = $("<div>").attr("class", "row col-12 buttonDiv").appendTo(infoDiv);
@@ -283,18 +283,23 @@ if(localStorage.getItem("products") === null) {
 
     createProducts();
 
-    // presenterar varje kategori vid knapp på vald kategoriknapp.
+    // presenterar varje kategori vid knapp på vald kategorik
     $(".categButton").on("click", function(){
         searchRes =[];
-    
+        
         $("#productCont").html(""); //tömmer Div:en som presnterar produkter
     
         for (let i = 0; i < productList.length; i++) {
             if (productList[i].categ == $(this).text())
              searchRes.push(productList[i]);  
-        }
-        
+             
+            }
+            let bigtitelDiv =$("<div>").attr("class", "col-12").appendTo("#productCont");
+            let bigTitle = $("<div>").html("<h4>" + $(this).text() + "</h4>").appendTo(bigtitelDiv);
+            let hrbreak = $("<hr>").appendTo(bigTitle);
+            
         for (let i = 0; i < searchRes.length; i++) {
+
          let proCon = $("#productCont").attr("class","row");
          let borderDiv = $("<div>").attr("class", "col-12 col-md-6, col-lg-4 p-2").appendTo(proCon);
          let productDiv = $("<div>").attr("class", "productDiv col-12 p-0").appendTo(borderDiv);
@@ -329,6 +334,48 @@ if(localStorage.getItem("products") === null) {
            });
         }
     });
-    console.log(cart.lenght);
-    console.log(productList.lenght);
+    // presenterar dom 6 senaste produkterna vid klick på den kategorin.
+    $("#latest").on("click", function(){
+        $("#productCont").html("");
+            let bigtitelDiv =$("<div>").attr("class", "col-12").appendTo("#productCont");
+            let bigTitle = $("<div>").html("<h4>Latest Products</h4>").appendTo(bigtitelDiv);
+            let hrbreak = $("<hr>").appendTo(bigTitle);
+             for (var i = productList.length - 1; i >= 0; --i) {
+            if (i === 3) { break; }
+
+            let proCon = $("#productCont").attr("class","row");
+            let borderDiv = $("<div>").attr("class", "col-12 col-md-6, col-lg-4 p-2").appendTo(proCon);
+            let productDiv = $("<div>").attr("class", "productDiv col-12 p-0").appendTo(borderDiv);
+            let photoDiv = $("<div></div>").attr("class", "col-12 p-0 photoDiv").appendTo(productDiv);
+            let photoShow = $("<img>").attr("src", productList[i].photo).appendTo(photoDiv).attr("class", "photos");
+            let infoDiv = $("<div>").attr("class", "row infoDiv p-0 m-0").appendTo(productDiv);
+            let innerInfo = $("<div>").attr ("class", "col-12 innerDiv p-0 m-0").appendTo(infoDiv);
+            let rowInner = $("<div>").attr ("class", "row infoRow p-0 m-0").appendTo(innerInfo);
+            let titleSpan = $("<span>").attr("class", "col-12 m-0 title").html(productList[i].name).appendTo(rowInner);
+            let descSpan = $("<span>").attr("class", "col-12 m-0 description").html("<b>Condition </b>" + productList[i].cond +".").appendTo(rowInner);
+            if (productList[i].cond == "New"){
+                $(descSpan).html("<b>Condition:</b>" + " \u2605 \u2605 \u2605 \u2605 \u2605");
+            }  
+            if (productList[i].cond == "Great"){
+                $(descSpan).html("<b>Condition:</b>" + " \u2605 \u2605 \u2605 \u2605");
+                }
+            if (productList[i].cond == "Good"){
+                $(descSpan).html("<b>Condition:</b>" + " \u2605 \u2605 \u2605");
+                }
+            if (productList[i].cond == "Okey"){
+                $(descSpan).html("<b>Condition:</b>" + " \u2605 \u2605");
+                }
+            if (productList[i].cond == "Bad"){
+                $(descSpan).html("<b>Condition:</b>" + " \u2605");
+            }
+            let priceSpan = $("<span>").attr("class", "col-12 m-0 price").html(productList[i].price).appendTo(rowInner);
+            let buttonDiv = $("<div>").attr("class", "row col-12 buttonDiv").appendTo(infoDiv);
+            let modalBut = $("<button>").attr("type","button").attr("class", "col-5").text("Read more").appendTo(buttonDiv);
+            let buyBut = $("<button>").attr("type","button").attr("class", "col-5").text("Buy").appendTo(buttonDiv);
+              $(modalBut).on("click", function() {
+                  presentModal(productList[i], i);
+              });
+           }
+    });
+
 });

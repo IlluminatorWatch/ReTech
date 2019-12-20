@@ -86,7 +86,7 @@ body {
     }
     a {
         background-color: $background_color_5;
-        color: $color_6;
+        color: $color_4;
         font-size: 16px;
         display: inline-block;
         line-height: 44px;
@@ -122,7 +122,7 @@ body {
     }
     a.linkedin {
         &:hover {
-            background-color: $background_color_9;
+            background-color: $background_color_8;
         }
     }
 }

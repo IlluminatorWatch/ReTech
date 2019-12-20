@@ -15,7 +15,6 @@ $(function(){
     this.categ;
     }
 
-    // Hej
 
     function presentModal(productItems){
         document.getElementById("modalPhoto").innerHTML=("");
@@ -61,8 +60,16 @@ $(function(){
   }
 }
 
-    
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    let localProducts = localStorage.getItem("productList") || '[]'; // lägger värdet av todoValue i egen variabel 
+    productList = JSON.parse(localProducts); //Gör värdet av valuefrom i todoList
+  
+    let localCart = localStorage.getItem("cart") || '[]'; // lägger värdet av todoValue i egen variabel 
+    cart = JSON.parse(localCart); //Gör värdet av valuefrom i todoList
     console.log(cart);
+
     function productItems(pitems){
 
         let iphone7 = new Products();
@@ -222,15 +229,20 @@ $(function(){
 	
         // })
         for(let i = 0; i < cart.length; i++){
-
+            // sum = "";
+            sum += parseInt(cart[i].price);
             // console.log(i);
             let newRow = $("<li>");
                 //newRow.innerHTML = cart[i].name;
                 //element[0].appendChild(newRow);
-             let title = $("<span>").text(cart[i].name);
-             let price = $("<span>").text(cart[i].price);
-             element.append(newRow);
-             newRow.append(title).append(price);
+            let imgcontainer = $("<div>").addClass("img-container");
+            let img = $("<img>").attr("src", cart[i].photo).addClass("img-fluid img-responsive img-thumbnail");
+            imgcontainer.append(img);
+            let row = $("<hr />");
+            let title = $("<span>").text(cart[i].name);
+            let price = $("<span>").text(cart[i].price);
+            element.append(newRow);
+            newRow.append(row).append(imgcontainer).append(title).append(price);
 
             // Skapar upp "delete"-knappar
             let createDeleteButton = document.createElement("button");
@@ -244,6 +256,7 @@ $(function(){
             createDeleteButton.addEventListener('click', function() {
 
                 removedProduct = cart.splice(i, 1);
+                
                 productList.push(removedProduct[0]); 
                 badge = $("#badge").text(cart.length);
                 localStorage.setItem("products", JSON.stringify(productList));
