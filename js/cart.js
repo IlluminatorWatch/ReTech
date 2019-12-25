@@ -179,63 +179,27 @@ $(function(){
             localStorage.setItem("Cart", JSON.stringify(cart));
         }
 
-    //productItems();
-    
-    // console.log (productList);
-    
-    // let products = JSON.stringify([])
-    // localStorage.setItem("products", products);
-    // let listfromls = localStorage.getItem("products")
-    // let thelist = JSON.parse(listfromls);
-
-
-    // localStorage.setItem("cart", JSON.stringify(products));
-    // let list = localStorage.getItem("cart");
-    // let productList= JSON.parse(list);
-
-    // $("div").each( function() {
-    //     $(this).append("");
-    // });
-
-    // let list = localStorage.getItem("cart") || "[]";
-    // let cartList= JSON.parse(list);
-
-    // let cartList =
     let titlePresented = $("#productResult"); // <ul>
     titlePresented.html("");
-    // let s = $(".priceSum");
-    let sum = 0;
-    // $(".priceSum").html(sum);
     
-    // $(sum).append(s);
-    // sum.innerHTML
-    // document.createElement(s).appendChild(sum);
-        // localStorage.setItem("todoList", JSON.stringify(todoList));
-    // list = JSON.parse(localStorage.getItem("todoList")); 
-    // console.log(list)
-    // printCart
-
+    let sum = 0;
+   
     function printCart() {
 
         console.log("Start");
         let element = $("#productResult");
         element.html=("");
-        // let myList
+        
         console.log(cart);
         
-        // Loop som skapar listan myCart
-        // .each(products, function(i, product){
-	
-        // })
  
         
         for(let i = 0; i < cart.length; i++){
-            // sum = "";
+            
             sum += parseInt(cart[i].price);
-            // console.log(i);
+            
             let newRow = $("<li>");
-                //newRow.innerHTML = cart[i].name;
-                //element[0].appendChild(newRow);
+            
             let imgcontainer = $("<div>").addClass("img-container");
             let img = $("<img>").attr("src", cart[i].photo).addClass("img-fluid img-responsive img-thumbnail");
             imgcontainer.append(img);
@@ -245,12 +209,11 @@ $(function(){
             element.append(newRow);
             newRow.append(row).append(imgcontainer).append(title).append(price);
 
-            // Skapar upp "delete"-knappar
+            
             let createDeleteButton = document.createElement("button");
-            // let createDeleteButton = $("<button>").text("Delete");
-            // $("#productResult").append(createDeleteButton);
+            
             createDeleteButton.setAttribute("type", "button");
-            //createDeleteButton.id = "delete";
+            
             createDeleteButton.className = "button";
             createDeleteButton.innerHTML = "Delete";
             newRow.append(createDeleteButton);
@@ -266,56 +229,11 @@ $(function(){
                 printCart();
               });
 
-                //console.log("Du klickade på position: ", i);
-                //let removedItem = cart.splice(i, 1);
-                //doneCart.push(removedItem[0]);
-                // console.log(removedItem)
-                //element.html=("");
-                //console.log(" rensa");
-                //printCart();    
-            //});
-            // $("button").on("click", function(){
-            // });
-            
-
-            // $("button")on("click,{product:p[i]},handleClick");
-            // $(function(){
-            //     $("button.button").on("click", function(){
-            //     $(this).parrent().parent()
-            //     $(this).closest(".product")
-            //     $(this).parents(".product").addClass(something);
-            //     });
-            // });
         }
-    // for (let i = 0; i < cartList.length; i++){
-    //     let newLi = $("<li>"); // <li></li>
-    //     let imgcontainer = $("<div>").addClass("img-container");
-    //     let img = $("<img>").attr("src", cartList[i].photo).addClass("img-fluid img-responsive img-thumbnail");
-    //     imgcontainer.append(img);
-    //     let row = $("<hr />");
-    //     let title = $("<span>").text(cartList[i].name);
-    //     let price = $("<span>").text(cartList[i].price);
-    //     let space = " ";
-    //     let text = "sek";
-    //     sum += parseInt(cartList[i].price);
-    //     // let titlePresented = document.createElement("div");
-        
-    //     newLi.append(row).append(imgcontainer).append(space).append(title).append(space).append(price).append(space).append(text); // <li>Kamera</li>
-    //     titlePresented.append(newLi); // <ul><li>Kamera</li></ul>
-    //     // console.log(titlePresented);
-    // }
+    
     let s = document.getElementById("priceSum");
     s.innerText = sum + " kr";
-    // console.log(sum);
-    // Skapar upp titlar
-    // let titlePresented = document.createElement("p");
-    // titlePresented.innerHTML = myFlickrList[i].title;
-    // newDiv.appendChild(titlePresented);
-    // console.log(titlePresented);
-
-    // let poster = document.createElement("img")
-    // poster.src = data.Poster;
-    // result.appendChild(poster);
+    
       
     }
   printCart();  
@@ -324,34 +242,8 @@ $(function(){
       cart = [];
     badge = $("#badge").text(cart.length);
     localStorage.setItem("cart", JSON.stringify(cart));
-   // localStorage.setItem("products", JSON.stringify(productList));
    
   });
 
   
 });
-
-
-
-    // let todoList = ["", "", "", "", "", "", ""];
-    // localStorage.setItem("todoList", JSON.stringify(todoList));
-    // list = JSON.parse(localStorage.getItem("todoList")); 
-    // $('#test').html("Test");
-    // localStorage.content = $('#test').html();
-    // $('#test').html(localStorage.content);
-
-  
-// });
-
-
-
-
-
-
-
-
-// $(document).ready(function(){
-
-  
-  
-//   });
